@@ -1,0 +1,39 @@
+
+"Home"                                  = "Home";
+"Please Enter Your Email"               = "Please Enter Your Email";
+"Please Enter Password"                 = "Please Enter Password";
+"Please Enter Valid Email"              = "Please Enter Valid Email";
+"Please Enter Mobile Number"            = "Please Enter Mobile Number";
+"Login"                                 = "Login";
+"Sign up"                               = "Sign up";
+"Forgot password"                       = "Forgot password";
+"Are you sure you want to log out?"     = "Are you sure you want to log out?";
+"Yes"                                   = "Yes";
+"No"                                    = "No";
+"Please enter first name"               = "Please enter first name";
+"Please enter last name"                = "Please enter last name";
+"Please select date"                    = "Please select date";
+"Please select start time"              = "Please select start time";
+"Please select end time"                = "Please select end time";
+"Language"                              = "Language";
+"Logout"                                = "Logout";
+"Ok"                                    = "Ok";
+"Male"                                  = "Male";
+"Female"                                = "Female";
+"Both"                                  = "Both";
+"online"                                = "online";
+"offline"                               = "offline";
+"kms away"                              = "kms away";
+"Privacy Policy"                        = "Privacy Policy";
+"Term of Use"                           = "Terms & Conditions";
+"TMFull"                                = "Continue if you agree to our  Privacy Policy and Terms & Conditions";
+"About Us"                              = "About Us";
+"Already have an account? Login"        = "Already have an account? Login";
+"Don't have an account yet? Register"   = "Don't have an account yet? Register";
+"Register"                              = "Register";
+"Enter Details"                         = "Enter Details";
+
+"MainIntstruction"                      = "Click on the menu above. \n  Click on Map to see locations.\n  Click on Inventory to see clues found \n * Click on Final Puzzle to finish the challenge";
+"FinalPuzzle"                           = "Here you will accumulate the clues found. To solve the final puzzle, CHOOSE a person, an object and a place that according to the INVENTORY clues will reveal the whereabouts of the AZTEC TREASURE. If you do not answer well, you will be penalized with time.";
+
+"EndGame"                               = "Congratulations, you have saved the world from the next pandemic. YOU MAY OPEN ENVELOPE #4";

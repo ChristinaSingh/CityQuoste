@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>whatsapp</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>inter_medium.ttf</string>
+		<string>poppins_regular.ttf</string>
+		<string>metropolis_light.ttf</string>
+		<string>inter_regular.ttf</string>
+		<string>roboto_regular.ttf</string>
+		<string>inter_bold.ttf</string>
+		<string>metropolis_regular_italic.otf</string>
+		<string>metropolis_bold.otf</string>
+		<string>poppins_medium.ttf</string>
+		<string>poppins_bold.ttf</string>
+		<string>inter_semi_bold.ttf</string>
+	</array>
+	<key>gad_preferred_webview</key>
+	<string>wkwebview</string>
+</dict>
+</plist>
