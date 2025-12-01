@@ -37,7 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.isEnabled = true
         LocationManager.sharedInstance.delegate = APP_DELEGATE
         LocationManager.sharedInstance.startUpdatingLocation()
-    
+        IQKeyboardManager.shared.isEnabled = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
+
        
         USER_DEFAULT.set("IOS123", forKey: IOS_TOKEN)
         UIApplication.shared.applicationIconBadgeNumber = 0

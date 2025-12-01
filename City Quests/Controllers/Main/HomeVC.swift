@@ -194,6 +194,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             return cell
             
         } else {
+            
             print("Nearestsddsd")
             let cell = nearestCollecView.dequeueReusableCell(withReuseIdentifier: "NearestCollectionCell", for: indexPath) as! NearestCollectionCell
             let data = nearMeEvents[indexPath.row]
@@ -213,9 +214,9 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
             let eventid = nearMeEvents[indexPath.row]["id"].stringValue
             //   arrlistCity = ["Los Angeles, CA","San Francisco. CA","Houston. TX","Dallas, TX","Miami, FL","New York, NY","Boston, MA","Atlanta, GA","Philadelphia, PA","Kansas City, KS","Seattle, WA"]
 
-            if self.lbl_city.text == "Houston. TX" || self.lbl_city.text == "Los Angeles, CA" || self.lbl_city.text == "San Francisco. CA"  || self.lbl_city.text == "Dallas, TX" || self.lbl_city.text == "New York, NY" || self.lbl_city.text == "Boston, MA" || self.lbl_city.text == "Atlanta, GA" || self.lbl_city.text == "Philadelphia, PA" {
+            if self.lbl_city.text == "Houston. TX" || self.lbl_city.text == "Los Angeles, CA" || self.lbl_city.text == "San Francisco. CA"  || self.lbl_city.text == "Dallas, TX" || self.lbl_city.text == "New York, NY" || self.lbl_city.text == "Boston, MA" || self.lbl_city.text == "Atlanta, GA" || self.lbl_city.text == "Philadelphia, PA" || self.lbl_city.text == "Kansas City, KS" || self.lbl_city.text == "Seattle, WA" || self.lbl_city.text == "Miami, FL" {
         
-                if eventid == "4"  || eventid == "2" || eventid == "3" || eventid == "5" || eventid == "6" || eventid == "7" || eventid == "8" || eventid == "9" || eventid == "10" || eventid == "11" || eventid == "12" || eventid == "13" || eventid == "14" || eventid == "15" || eventid == "16" || eventid == "17" || eventid == "18"
+                if eventid == "4"  || eventid == "2" || eventid == "3" || eventid == "5" || eventid == "6" || eventid == "7" || eventid == "8" || eventid == "9" || eventid == "10" || eventid == "11" || eventid == "12" || eventid == "13" || eventid == "14" || eventid == "15" || eventid == "16" || eventid == "17" || eventid == "18" || eventid == "19" || eventid == "20" || eventid == "21" || eventid == "22"
                 {
                    
                    self.tabBarController?.selectedIndex = 3

@@ -91,16 +91,14 @@ class JoinedEventVC: UIViewController {
                         $0["id"].stringValue == "13" ||
                         $0["id"].stringValue == "14" ||
                         $0["id"].stringValue == "15" ||
-                        $0["id"].stringValue == "16" 
-//                        $0["id"].stringValue == "17" ||
-//                        $0["id"].stringValue == "18" ||
-//                        $0["id"].stringValue == "26" ||
-//                        $0["id"].stringValue == "27" ||
-//                        $0["id"].stringValue == "33" || 
-//                        $0["id"].stringValue == "39"
+                        $0["id"].stringValue == "16" ||
+                        $0["id"].stringValue == "17" ||
+                        $0["id"].stringValue == "18" ||
+                        $0["id"].stringValue == "19" ||
+                        $0["id"].stringValue == "20" ||
+                        $0["id"].stringValue == "21" ||
+                        $0["id"].stringValue == "22"
                         && $0["event_status"].stringValue != "END"})
-                    
-//                    self.nearMeEvents = swiftyJsonVar["result"].arrayValue.filter({$0["type"].stringValue == "puzzle" || $0["type"].stringValue == "crime" || $0["type"].stringValue == "codigo_frida" || $0["type"].stringValue == "zombie" || $0["type"].stringValue == "rescate" || $0["type"].stringValue == "mision_magica" || $0["type"].stringValue == "mystery_city" && $0["event_status"].stringValue != "END"})
 
                     self.nearMeEvents = nearMeEvents.filter({$0["event_status"].stringValue != "END"})
 

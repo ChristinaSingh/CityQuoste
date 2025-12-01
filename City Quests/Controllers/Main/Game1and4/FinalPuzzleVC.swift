@@ -238,7 +238,7 @@ extension FinalPuzzleVC: UICollectionViewDelegate,UICollectionViewDataSource,UIC
             
         } else if collectionView == collection_People {
 
-            let cell = collection_place.dequeueReusableCell(withReuseIdentifier: "BannerCollectionCell", for: indexPath) as! BannerCollectionCell
+            let cell = collection_People.dequeueReusableCell(withReuseIdentifier: "BannerCollectionCell", for: indexPath) as! BannerCollectionCell
             
             let data = arrayList.filter({$0["type"].stringValue == "People"})[indexPath.row]
           //  cell.imgView.sd_setShowActivityIndicatorView(true)
@@ -254,7 +254,7 @@ extension FinalPuzzleVC: UICollectionViewDelegate,UICollectionViewDataSource,UIC
             
         } else  {
             
-            let cell = collection_People.dequeueReusableCell(withReuseIdentifier: "BannerCollectionCell", for: indexPath) as! BannerCollectionCell
+            let cell = collection_object.dequeueReusableCell(withReuseIdentifier: "BannerCollectionCell", for: indexPath) as! BannerCollectionCell
             
             let data = arrayList.filter({$0["type"].stringValue == "Objects"})[indexPath.row]
          //   cell.imgView.sd_setShowActivityIndicatorView(true)
@@ -263,7 +263,7 @@ extension FinalPuzzleVC: UICollectionViewDelegate,UICollectionViewDataSource,UIC
             if isObject == indexPath.row {
                 cell.img_Checked.image = UIImage.init(named: "ic_checked")
             } else {
-                cell.img_Checked.image = UIImage.init(named: "")
+                cell.img_Checked.image = nil
             }
 
             return cell
@@ -301,7 +301,20 @@ extension FinalPuzzleVC: UICollectionViewDelegate,UICollectionViewDataSource,UIC
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       
-        return CGSize(width: self.collection_place.frame.width/3 - 10, height: 130)
+        if collectionView == collection_place {
+           
+            return CGSize(width: self.collection_place.frame.width/3 - 10, height: 130)
+
+        } else if collectionView == collection_People {
+           
+            return CGSize(width: self.collection_People.frame.width/3 - 10, height: 130)
+
+        } else  {
+            
+            
+            return CGSize(width: self.collection_object.frame.width/3 - 10, height: 130)
+
+        }
     }
     
 }

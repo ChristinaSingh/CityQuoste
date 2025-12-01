@@ -156,7 +156,7 @@ class MapBottomBarVC: UIViewController {
               
                 let strEId = kappDelegate.dicCurrentEvent["id"].stringValue
                
-                if strEId == "2" || strEId == "6" || strEId == "8" || strEId == "10" || strEId == "12" || strEId == "14" || strEId == "16" || strEId == "18" {
+                if strEId == "2" || strEId == "6" || strEId == "8" || strEId == "10" || strEId == "12" || strEId == "14" || strEId == "16" || strEId == "18" || strEId == "20" || strEId == "22" {
 
                     let nVC = self.storyboard?.instantiateViewController(withIdentifier: "FinalPuzzleCodigoVc") as! FinalPuzzleCodigoVc
                     self.navigationController?.pushViewController(nVC, animated: true)
