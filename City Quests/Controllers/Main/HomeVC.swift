@@ -25,6 +25,16 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.tabBar.tintColor = .yellow
+//        self.tabBar.unselectedItemTintColor = .white
+//
+//        guard let items =  self.tabBar.items else { return }
+//
+//        items[0].image = UIImage(named: "home")?.withRenderingMode(.alwaysTemplate)
+//        items[1].image = UIImage(named: "location")?.withRenderingMode(.alwaysTemplate)
+//        items[2].image = UIImage(named: "profile")?.withRenderingMode(.alwaysTemplate)
+//
         WebGetCategory()
         pageControlCall()
         
@@ -216,7 +226,7 @@ extension HomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollecti
 
             if self.lbl_city.text == "Houston. TX" || self.lbl_city.text == "Los Angeles, CA" || self.lbl_city.text == "San Francisco. CA"  || self.lbl_city.text == "Dallas, TX" || self.lbl_city.text == "New York, NY" || self.lbl_city.text == "Boston, MA" || self.lbl_city.text == "Atlanta, GA" || self.lbl_city.text == "Philadelphia, PA" || self.lbl_city.text == "Kansas City, KS" || self.lbl_city.text == "Seattle, WA" || self.lbl_city.text == "Miami, FL" {
         
-                if eventid == "4"  || eventid == "2" || eventid == "3" || eventid == "5" || eventid == "6" || eventid == "7" || eventid == "8" || eventid == "9" || eventid == "10" || eventid == "11" || eventid == "12" || eventid == "13" || eventid == "14" || eventid == "15" || eventid == "16" || eventid == "17" || eventid == "18" || eventid == "19" || eventid == "20" || eventid == "21" || eventid == "22"
+                if eventid == "4"  || eventid == "2" || eventid == "3" || eventid == "5" || eventid == "6" || eventid == "7" || eventid == "8" || eventid == "9" || eventid == "10" || eventid == "11" || eventid == "12" || eventid == "13" || eventid == "14" || eventid == "15" || eventid == "16" || eventid == "17" || eventid == "18" || eventid == "19" || eventid == "20" || eventid == "21" || eventid == "22" || eventid == "23"
                 {
                    
                    self.tabBarController?.selectedIndex = 3

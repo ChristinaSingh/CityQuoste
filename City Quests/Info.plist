@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleURLTypes</key>
-	<array/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -31,5 +29,7 @@
 	</array>
 	<key>gad_preferred_webview</key>
 	<string>wkwebview</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location is required to show your current position</string>
 </dict>
 </plist>

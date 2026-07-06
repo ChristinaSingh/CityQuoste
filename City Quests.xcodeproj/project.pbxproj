@@ -10,6 +10,7 @@
 		7D2BEB8C2CCA3FEB00550ECE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DEBD68C2CC8C3A100817D72 /* LaunchScreen.storyboard */; };
 		7DAB66972CCA26A7003A3F08 /* bacj.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7DAB66962CCA26A7003A3F08 /* bacj.gif */; };
 		7DD94DE12ED06AD600B36F1A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD94DE02ED06AD600B36F1A /* WebKit.framework */; };
+		7DE17C802F8A0A3200630617 /* AnswerRegularVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE17C7F2F8A0A3200630617 /* AnswerRegularVC.swift */; };
 		7DEBD6822CC8C3A000817D72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEBD6812CC8C3A000817D72 /* AppDelegate.swift */; };
 		7DEBD6892CC8C3A000817D72 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7DEBD6882CC8C3A000817D72 /* Base */; };
 		7DEBD68B2CC8C3A100817D72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DEBD68A2CC8C3A100817D72 /* Assets.xcassets */; };
@@ -134,6 +135,7 @@
 		6C62821A04AA48E0E358F201 /* Pods-City Quests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-City Quests.release.xcconfig"; path = "Target Support Files/Pods-City Quests/Pods-City Quests.release.xcconfig"; sourceTree = "<group>"; };
 		7DAB66962CCA26A7003A3F08 /* bacj.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bacj.gif; sourceTree = SOURCE_ROOT; };
 		7DD94DE02ED06AD600B36F1A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		7DE17C7F2F8A0A3200630617 /* AnswerRegularVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerRegularVC.swift; sourceTree = "<group>"; };
 		7DEBD67E2CC8C3A000817D72 /* City Quests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "City Quests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DEBD6812CC8C3A000817D72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DEBD6882CC8C3A000817D72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -509,6 +511,7 @@
 				7DEBD6F72CC8C3D600817D72 /* FinalPuzzleVC.swift */,
 				7DEBD6F92CC8C3D600817D72 /* HIntAnswerVC.swift */,
 				7DEBD6FA2CC8C3D600817D72 /* InstructionVC.swift */,
+				7DE17C7F2F8A0A3200630617 /* AnswerRegularVC.swift */,
 				7DEBD6FB2CC8C3D600817D72 /* InventaryDetailVC.swift */,
 				7DEBD6FC2CC8C3D600817D72 /* InventorylistVC.swift */,
 				7DEBD6FD2CC8C3D600817D72 /* MainInstructionVC.swift */,
@@ -753,6 +756,7 @@
 				7DEBD7762CC8C3D600817D72 /* VideoPlayerVC.swift in Sources */,
 				7DEBD7882CC8C3D600817D72 /* LoginUsreVC.swift in Sources */,
 				7DEBD7542CC8C3D600817D72 /* CommunicationManager.swift in Sources */,
+				7DE17C802F8A0A3200630617 /* AnswerRegularVC.swift in Sources */,
 				7DEBD77C2CC8C3D600817D72 /* VirusInstructionVC.swift in Sources */,
 				7DEBD77A2CC8C3D600817D72 /* VirsuHomeVC.swift in Sources */,
 				7DEBD7802CC8C3D600817D72 /* HistoryVC.swift in Sources */,
@@ -985,14 +989,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = Y33UCR56QH;
+				DEVELOPMENT_TEAM = Y33UCR56QH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "City Quests/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "City Quests";
+				INFOPLIST_KEY_NSCameraUsageDescription = "App want use Camera for uplaod profile picture.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "App want use your location for add new add post as your suitable address. User can find according to address of post location.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "App want use microphone permission is needed to to receive voice commands.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1001,16 +1007,15 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ios.cityquest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = CityDevelo;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/technorizen/Desktop/City Quests/City Quests/City Quests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -1033,6 +1038,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "City Quests/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "City Quests";
+				INFOPLIST_KEY_NSCameraUsageDescription = "App want use Camera for uplaod profile picture.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "App want use your location for add new add post as your suitable address. User can find according to address of post location.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "App want use microphone permission is needed to to receive voice commands.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1041,12 +1049,12 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ios.cityquest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

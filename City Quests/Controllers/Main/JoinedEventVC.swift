@@ -97,7 +97,11 @@ class JoinedEventVC: UIViewController {
                         $0["id"].stringValue == "19" ||
                         $0["id"].stringValue == "20" ||
                         $0["id"].stringValue == "21" ||
-                        $0["id"].stringValue == "22"
+                        $0["id"].stringValue == "22" ||
+                        $0["id"].stringValue == "23"
+//                        $0["id"].stringValue == "1"
+
+
                         && $0["event_status"].stringValue != "END"})
 
                     self.nearMeEvents = nearMeEvents.filter({$0["event_status"].stringValue != "END"})

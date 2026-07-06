@@ -135,7 +135,6 @@ class LevelVC: UIViewController {
 
 }
 extension LevelVC: UITableViewDelegate,UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
             return nearMeEvents.count

@@ -63,15 +63,23 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
             locationManager?.requestAlwaysAuthorization()
             break
         case .authorizedWhenInUse:
+            print("Location permission startUpdatingLocation")
+
             locationManager?.startUpdatingLocation()
             break
         case .authorizedAlways:
+            print("Location permission startUpdatingLocation")
+
             locationManager?.startUpdatingLocation()
             break
         case .restricted:
+            print("Location permission restricted")
+
             // restricted by e.g. parental controls. User can't enable Location Services
             break
         case .denied:
+            print("Location permission denied")
+
             // user denied your app access to Location Services, but can grant access from Settings.app
             break
         default:

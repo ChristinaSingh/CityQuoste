@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import SwiftyJSON
 
-class MapBottomBarVC: UIViewController {
+class MapBottomBarVC: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var btnPause: UIButton!
     @IBOutlet weak var lbl_Time: UILabel!
@@ -17,7 +17,8 @@ class MapBottomBarVC: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
    
     var arrlist:[JSON]! = []
-    
+    let locationManager = CLLocationManager()
+
     var totalSecond = Int()
     var timer:Timer?
     var puzzueDImage:UIImage!
@@ -33,7 +34,34 @@ class MapBottomBarVC: UIViewController {
         btnPause.setImage(UIImage.init(systemName: "pause.circle.fill"), for: .normal)
        // WebGetCode()
         lbl_Time.text = ""
+        locationManager.delegate = self
+        
+        // Request permission
+        locationManager.requestWhenInUseAuthorization()
+
+        // Enable blue dot
+        mapView.showsUserLocation = true
+        
+        // Optional
+        mapView.userTrackingMode = .follow
+        
+        locationManager.startUpdatingLocation()
     }
+
+    func locationManager(_ manager: CLLocationManager,
+                         didChangeAuthorization status: CLAuthorizationStatus) {
+
+        switch status {
+
+        case .authorizedWhenInUse, .authorizedAlways:
+            mapView.showsUserLocation = true
+            locationManager.startUpdatingLocation()
+
+        default:
+            print("Location permission denied")
+        }
+    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -156,7 +184,7 @@ class MapBottomBarVC: UIViewController {
               
                 let strEId = kappDelegate.dicCurrentEvent["id"].stringValue
                
-                if strEId == "2" || strEId == "6" || strEId == "8" || strEId == "10" || strEId == "12" || strEId == "14" || strEId == "16" || strEId == "18" || strEId == "20" || strEId == "22" {
+                if strEId == "2" || strEId == "6" || strEId == "8" || strEId == "10" || strEId == "12" || strEId == "14" || strEId == "16" || strEId == "18" || strEId == "20" || strEId == "22" || strEId == "23" {
 
                     let nVC = self.storyboard?.instantiateViewController(withIdentifier: "FinalPuzzleCodigoVc") as! FinalPuzzleCodigoVc
                     self.navigationController?.pushViewController(nVC, animated: true)
@@ -171,6 +199,7 @@ class MapBottomBarVC: UIViewController {
             } else if sender.tag == 2 {
              
                 let nVC = self.storyboard?.instantiateViewController(withIdentifier: "FlgMaViewVC") as! FlgMaViewVC
+                nVC.puzzueDImage = puzzueDImage
                 self.navigationController?.pushViewController(nVC, animated: true)
 
             } else if sender.tag == 3 {
@@ -368,27 +397,29 @@ extension MapBottomBarVC: MKMapViewDelegate {
         
         let strGameId = kappDelegate.dicCurrentEvent["id"].stringValue
             //puzzle (Mexico)
-        if strGameId == "1" ||
-           
-            //crime (Mexico,Gudaljar)
-            strGameId == "5" ||
-            strGameId == "20" ||
-            
-            //zoombi (Mexico,Gudaljar)
-            strGameId == "15"  ||
-            
-            //Codigo (Mexico)
-            strGameId == "8" ||
-            
-            //mision_magica (Mexico,Gudaljar,Montery,Puebla)
-            strGameId == "24" || strGameId == "22" || strGameId == "31" || strGameId == "32" ||
-            
-            //riddle (Mexico)
-            strGameId == "40" ||
-
-            //rescate (Mexico,Gudaljar,Montery)
-            strGameId == "18" || strGameId == "19" ||
-            strGameId == "28"  {
+//        if strGameId == "1" ||
+//            strGameId == "4" ||
+//            strGameId == "23" ||
+//
+//            //crime (Mexico,Gudaljar)
+//            strGameId == "5" ||
+//            strGameId == "20" ||
+//            
+//            //zoombi (Mexico,Gudaljar)
+//            strGameId == "15"  ||
+//            
+//            //Codigo (Mexico)
+//            strGameId == "8" ||
+//            
+//            //mision_magica (Mexico,Gudaljar,Montery,Puebla)
+//            strGameId == "24" || strGameId == "22" || strGameId == "31" || strGameId == "32" ||
+//            
+//            //riddle (Mexico)
+//            strGameId == "40" ||
+//
+//            //rescate (Mexico,Gudaljar,Montery)
+//            strGameId == "18" || strGameId == "19" ||
+//            strGameId == "28" ||  strGameId == "11" {
             
             if arr[0]["geolocation"].stringValue == "on" {
                 
@@ -410,6 +441,13 @@ extension MapBottomBarVC: MKMapViewDelegate {
                         kappDelegate.strIsFrom = "No"
                         self.navigationController?.pushViewController(nVC, animated: true)
 
+
+                    } else if arr[0]["regular_clue"].stringValue == "Yes" {
+                        
+                        let nVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerRegularVC") as! AnswerRegularVC
+                        nVC.dicCurrentQuestion = arr[0]
+                        kappDelegate.strIsFrom = "No"
+                        self.navigationController?.pushViewController(nVC, animated: true)
 
                     } else {
                         
@@ -444,6 +482,13 @@ extension MapBottomBarVC: MKMapViewDelegate {
                     self.navigationController?.pushViewController(nVC, animated: true)
 
 
+                } else if arr[0]["regular_clue"].stringValue == "Yes" {
+                    
+                    let nVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerRegularVC") as! AnswerRegularVC
+                    nVC.dicCurrentQuestion = arr[0]
+                    kappDelegate.strIsFrom = "No"
+                    self.navigationController?.pushViewController(nVC, animated: true)
+
                 } else {
                     
                     
@@ -454,38 +499,45 @@ extension MapBottomBarVC: MKMapViewDelegate {
                 }
             }
             
-        } else {
-            
-            
-            if arr[0]["Jigsaw_puzzle_status"].stringValue == "enable" {
-
-                let nVC = self.storyboard?.instantiateViewController(withIdentifier: "PuzzleCollectionViewController") as! PuzzleCollectionViewController
-                nVC.dicCurrentQuestion = arr[0]
-                kappDelegate.strIsFrom = "No"
-                nVC.puzzueDImage = puzzueDImage
-                self.navigationController?.pushViewController(nVC, animated: true)
-
-                
-            } else if arr[0]["argument_reality"].stringValue == "on" {
-                
-                let nVC = self.storyboard?.instantiateViewController(withIdentifier: "ArkitViewController") as! ArkitViewController
-                nVC.dicCurrentQuestion = arr[0]
-                kappDelegate.strIsFrom = "No"
-                self.navigationController?.pushViewController(nVC, animated: true)
-
-
-            } else {
-                
-                
-                let nVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerVC") as! AnswerVC
-                nVC.dicCurrentQuestion = arr[0]
-                kappDelegate.strIsFrom = "No"
-                self.navigationController?.pushViewController(nVC, animated: true)
-
-
-            }
-
-        }
+//        } else {
+//            
+//            
+//            if arr[0]["Jigsaw_puzzle_status"].stringValue == "enable" {
+//
+//                let nVC = self.storyboard?.instantiateViewController(withIdentifier: "PuzzleCollectionViewController") as! PuzzleCollectionViewController
+//                nVC.dicCurrentQuestion = arr[0]
+//                kappDelegate.strIsFrom = "No"
+//                nVC.puzzueDImage = puzzueDImage
+//                self.navigationController?.pushViewController(nVC, animated: true)
+//
+//                
+//            } else if arr[0]["argument_reality"].stringValue == "on" {
+//                
+//                let nVC = self.storyboard?.instantiateViewController(withIdentifier: "ArkitViewController") as! ArkitViewController
+//                nVC.dicCurrentQuestion = arr[0]
+//                kappDelegate.strIsFrom = "No"
+//                self.navigationController?.pushViewController(nVC, animated: true)
+//
+//
+//            } else if arr[0]["regular_clue"].stringValue == "Yes" {
+//                
+//                let nVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerRegularVC") as! AnswerRegularVC
+//                nVC.dicCurrentQuestion = arr[0]
+//                kappDelegate.strIsFrom = "No"
+//                self.navigationController?.pushViewController(nVC, animated: true)
+//
+//            } else {
+//                
+//                
+//                let nVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerVC") as! AnswerVC
+//                nVC.dicCurrentQuestion = arr[0]
+//                kappDelegate.strIsFrom = "No"
+//                self.navigationController?.pushViewController(nVC, animated: true)
+//
+//
+//            }
+//
+//        }
        
     }
     
@@ -661,7 +713,13 @@ extension MapBottomBarVC: MKMapViewDelegate {
             arrAllAnn.append(sourceAnnotation)
         }
 
-       
+        if let annotation = arrAllAnn.first(where: { $0.title == "Tets" }) {
+            mapView.removeAnnotation(annotation)
+            if let index = arrAllAnn.firstIndex(where: { $0 === annotation }) {
+                arrAllAnn.remove(at: index)
+            }
+        }
+
         self.initMapViewAnnotation()
 
         self.mapView.showAnnotations(arrAllAnn, animated: true )

@@ -109,6 +109,7 @@ class PuzzleCollectionViewController: UICollectionViewController {
 
         return cell
     }
+
     func downloadImage(from url: URL) {
         print("Download Started")
         getData(from: url) { data, response, error in
@@ -122,8 +123,10 @@ class PuzzleCollectionViewController: UICollectionViewController {
                 if self?.puzzueDImage != nil {
                     self?.calWhn()
                     self!.hideProgressBar()
-
-                    GlobalConstant.showAlertMessage(withOkButtonAndTitle: "INSTRUCTIONS", andMessage: "Mantén pulsado con fuerza una pieza del rompecabezas y desliza para mover las piezas.", on: self!)
+//                    Slide the pieces into the correct place using your finger.
+//                    Keep your finger pressed on the screen and slide until the
+//                    piece moves
+                    GlobalConstant.showAlertMessage(withOkButtonAndTitle: "INSTRUCTIONS", andMessage: "Slide the pieces into the correct place using your finger.Keep your finger pressed on the screen and slide until the piece moves", on: self!)
 
                 } else {
                     GlobalConstant.showAlertMessage(withOkButtonAndTitle: APPNAME, andMessage: "Image Not geting in puzzle format", on: self!)

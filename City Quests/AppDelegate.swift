@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         IQKeyboardManager.shared.isEnabled = true
         LocationManager.sharedInstance.delegate = APP_DELEGATE
+        LocationManager.sharedInstance.delegate = self
         LocationManager.sharedInstance.startUpdatingLocation()
         IQKeyboardManager.shared.isEnabled = true
         IQKeyboardManager.shared.enableAutoToolbar = true
@@ -64,7 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
 //            return report
 //        }
-
         return true
         
         

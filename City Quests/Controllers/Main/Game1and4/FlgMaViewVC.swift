@@ -16,7 +16,8 @@ class FlgMaViewVC: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
    
     var arrlist:[JSON]! = []
-    
+    var puzzueDImage:UIImage!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -152,13 +153,40 @@ extension FlgMaViewVC: MKMapViewDelegate {
             if arr[0]["geolocation"].stringValue == "on" {
                 
                 if d < 100 {
-                    
-                    let nVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerVC") as! AnswerVC
-                    nVC.dicCurrentQuestion = arr[0]
-                    kappDelegate.strIsFrom = "No"
-                    self.navigationController?.pushViewController(nVC, animated: true)
+                    //
+                                        if arr[0]["Jigsaw_puzzle_status"].stringValue == "enable" {
 
-                } else {
+                                            let nVC = self.storyboard?.instantiateViewController(withIdentifier: "PuzzleCollectionViewController") as! PuzzleCollectionViewController
+                                            nVC.dicCurrentQuestion = arr[0]
+                                            kappDelegate.strIsFrom = "No"
+                                            nVC.puzzueDImage = puzzueDImage
+                                            self.navigationController?.pushViewController(nVC, animated: true)
+
+                                            
+                                        } else if arr[0]["argument_reality"].stringValue == "on" {
+                                            
+                                            let nVC = self.storyboard?.instantiateViewController(withIdentifier: "ArkitViewController") as! ArkitViewController
+                                            nVC.dicCurrentQuestion = arr[0]
+                                            kappDelegate.strIsFrom = "No"
+                                            self.navigationController?.pushViewController(nVC, animated: true)
+
+
+                                        } else if arr[0]["regular_clue"].stringValue == "Yes" {
+                                            
+                                            let nVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerRegularVC") as! AnswerRegularVC
+                                            nVC.dicCurrentQuestion = arr[0]
+                                            kappDelegate.strIsFrom = "No"
+                                            self.navigationController?.pushViewController(nVC, animated: true)
+
+                                        } else {
+                                            
+                                            let nVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerVC") as! AnswerVC
+                                            nVC.dicCurrentQuestion = arr[0]
+                                            kappDelegate.strIsFrom = "No"
+                                            self.navigationController?.pushViewController(nVC, animated: true)
+                                        }
+
+                                    } else {
                     
                     GlobalConstant.showAlertMessageClose(withOkButtonAndTitle: "UBICACION LEJANA", andMessage: "Distance :- \(d) Meter's\n\nIParece que no estás dentro del radio cercano a las marcas del juego.Debes estar al menos 100 metros próximos a la ubicación marcada.", on: self)
                     
@@ -166,19 +194,77 @@ extension FlgMaViewVC: MKMapViewDelegate {
 
             } else {
                 
+                if arr[0]["Jigsaw_puzzle_status"].stringValue == "enable" {
+                    
+                    let nVC = self.storyboard?.instantiateViewController(withIdentifier: "PuzzleCollectionViewController") as! PuzzleCollectionViewController
+                    nVC.dicCurrentQuestion = arr[0]
+                    kappDelegate.strIsFrom = "No"
+                    nVC.puzzueDImage = puzzueDImage
+                    self.navigationController?.pushViewController(nVC, animated: true)
+
+                    
+                } else if arr[0]["argument_reality"].stringValue == "on" {
+                    
+                    let nVC = self.storyboard?.instantiateViewController(withIdentifier: "ArkitViewController") as! ArkitViewController
+                    nVC.dicCurrentQuestion = arr[0]
+                    kappDelegate.strIsFrom = "No"
+                    self.navigationController?.pushViewController(nVC, animated: true)
+
+
+                } else if arr[0]["regular_clue"].stringValue == "Yes" {
+                    
+                    let nVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerRegularVC") as! AnswerRegularVC
+                    nVC.dicCurrentQuestion = arr[0]
+                    kappDelegate.strIsFrom = "No"
+                    self.navigationController?.pushViewController(nVC, animated: true)
+
+                } else {
+                    
+                    
+                    let nVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerVC") as! AnswerVC
+                    nVC.dicCurrentQuestion = arr[0]
+                    kappDelegate.strIsFrom = "No"
+                    self.navigationController?.pushViewController(nVC, animated: true)
+                }
+            }
+            
+        } else {
+            
+            
+            if arr[0]["Jigsaw_puzzle_status"].stringValue == "enable" {
+
+                let nVC = self.storyboard?.instantiateViewController(withIdentifier: "PuzzleCollectionViewController") as! PuzzleCollectionViewController
+                nVC.dicCurrentQuestion = arr[0]
+                kappDelegate.strIsFrom = "No"
+                nVC.puzzueDImage = puzzueDImage
+                self.navigationController?.pushViewController(nVC, animated: true)
+
+                
+            } else if arr[0]["argument_reality"].stringValue == "on" {
+                
+                let nVC = self.storyboard?.instantiateViewController(withIdentifier: "ArkitViewController") as! ArkitViewController
+                nVC.dicCurrentQuestion = arr[0]
+                kappDelegate.strIsFrom = "No"
+                self.navigationController?.pushViewController(nVC, animated: true)
+
+
+            } else if arr[0]["regular_clue"].stringValue == "Yes" {
+                
+                let nVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerRegularVC") as! AnswerRegularVC
+                nVC.dicCurrentQuestion = arr[0]
+                kappDelegate.strIsFrom = "No"
+                self.navigationController?.pushViewController(nVC, animated: true)
+
+            } else {
+                
+                
                 let nVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerVC") as! AnswerVC
                 nVC.dicCurrentQuestion = arr[0]
                 kappDelegate.strIsFrom = "No"
                 self.navigationController?.pushViewController(nVC, animated: true)
 
+
             }
-            
-        } else {
-            
-            let nVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerVC") as! AnswerVC
-            nVC.dicCurrentQuestion = arr[0]
-            kappDelegate.strIsFrom = "No"
-            self.navigationController?.pushViewController(nVC, animated: true)
 
         }
         
